@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923074231) do
+ActiveRecord::Schema.define(version: 20140923122918) do
 
   create_table "formations", force: true do |t|
     t.string   "name"
@@ -63,8 +63,25 @@ ActiveRecord::Schema.define(version: 20140923074231) do
 
   add_index "salle_rooms", ["site_id"], name: "index_salle_rooms_on_site_id", using: :btree
 
+  create_table "session_signs", force: true do |t|
+    t.datetime "time"
+    t.integer  "timesheet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sites", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "adress"
+    t.text     "geo"
+  end
+
+  create_table "timesheets", force: true do |t|
+    t.string   "event"
+    t.datetime "event_time"
+    t.integer  "formation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
