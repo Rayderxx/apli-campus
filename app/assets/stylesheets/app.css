@@ -1,0 +1,29 @@
+input:focus,
+textarea:focus {
+    outline: none;
+}
+.login {
+    text-align: center;
+    padding-bottom: 20%;
+}
+.logo-ucp {
+    margin-top: 40%;
+}
+.login input[type=text] {
+    margin-bottom: 10px;
+    border: 2px solid #ff675a;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.login input[type=submit] {
+    background: #ff675a;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 15px;
+    color: white;
+}
+}
+.login h2 {
+    color: #383838;
+}

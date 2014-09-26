@@ -1,1 +1,13 @@
-Login
+<section class="login" ng-controller="LoginCtrl">
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
+                <%= image_tag("logo_UCP.jpg", :alt => "Logo UCP", :class => "img-responsive logo-ucp") %>
+            </div>
+        </div>
+        <h2>Appli Campus</h2><br>
+        <form action="">
+            <input type="text" name="student_id" id="student_id" placeholder="Numero d'étudiant"><br>
+            <input type="text" name="password" id="password" placeholder="Mot de passe"><br>
+            <input type="submit" value="Connexion">
+        </form>
+</section>
