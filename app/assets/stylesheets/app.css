@@ -1,0 +1,96 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-gsl7nr');
+	src:url('fonts/icomoon.eot?#iefix-gsl7nr') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-gsl7nr') format('woff'),
+		url('fonts/icomoon.ttf?-gsl7nr') format('truetype'),
+		url('fonts/icomoon.svg?-gsl7nr#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*="icon-"] {
+	display: block;
+	font-size: 5em;
+	margin-bottom: 10px;
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-qrcode:before {
+	content: "\e601";
+}
+.icon-calendar:before {
+	content: "\e602";
+}
+.icon-wink:before {
+	content: "\e603";
+}
+.icon-uniE600:before {
+	content: "\e600";
+}
+
+
+html, body{
+	height:100%;	
+}
+
+.home{
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	background: black;
+}
+
+.home a{
+	text-decoration: none;
+}
+
+.menu{
+	border-radius: 7px;
+	padding: 12.5%;
+}
+
+.col-xs-6{
+	padding: 3px;
+}
+.presence{
+	background: #383838;
+}
+
+a .presence{
+	color: #FFFFFF;
+}
+
+.agenda{
+	background: #ccdfcb;
+}
+
+a .agenda{
+	color: #383838;
+}
+
+.trombi{
+	background: #ff685f;
+}
+
+a .trombi{
+	color: #ffffff;
+}
+
+.preference{
+	background: #ffffff;
+}
+
+a .preference{
+	color: #ff685f;
+}
