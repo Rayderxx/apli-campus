@@ -1,5 +1,10 @@
 ApliCampus::Application.routes.draw do
-  devise_for :users
+  resources :users
+  resources :sessions, only: [:create, :destroy] do
+    collection do
+        get 'login'
+    end
+  end
   namespace :admin do
     resources :timesheets
     resources :agendas
