@@ -1,0 +1,5 @@
+<%= simple_form_for @user, :url => sessions_path do |f| %>
+  <%= f.input :email, wrapper_html: { class: 'username' } %>
+  <%= f.input :password, wrapper_html: { id: 'password' } %>
+  <%= f.button :submit %>
+<% end %>

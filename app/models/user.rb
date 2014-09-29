@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
     #user information
     has_one :information
+    has_many :promotions
+    has_many :formations, through: :promotion
 
     def create_role
         self.add_role self.type.downcase.to_sym
