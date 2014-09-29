@@ -1,5 +1,9 @@
 ApliCampus::Application.routes.draw do
-  resources :users
+  resources :users do 
+    collection do
+        get 'formation_users'
+    end
+  end
   resources :sessions, only: [:create, :destroy] do
     collection do
         get 'login'

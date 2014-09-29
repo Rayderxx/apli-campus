@@ -1,13 +1,14 @@
 <section class="container-fluid trombi" ng-controller="TrombiCtrl">
+   <div ng-show="loading">Chargement ...</div>
     <span class="back"><a href="/"><i class="icon-arrow-left"></i></a></span>
-    <div class="row">
+    <div ng-hide="loading" class="row">
         <div class="col-xs-12">
             <h2>Trombi</h2>
         </div>
         <div ng-repeat="student in students">
             <div class="student col-md-2 col-sm-3 col-xs-4">
-                <a href="/trombi/{{student.no_etud}}">
-                    <img src="{{student.picture}}" alt="" class="thumb-picture img-responsive top-buffer">{{student.name}}
+                <a href="/trombi/{{student.id}}">
+                    <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Emblem-cool.svg/80px-Emblem-cool.svg.png" alt="" class="thumb-picture img-responsive top-buffer">{{student.first_name}} {{student.last_name}}
                 </a>
             </div>
         </div>

@@ -18,4 +18,8 @@ class UsersController < ApplicationController
 
     def destroy
     end
+
+    def formation_users
+        render json: get_formation_users
+    end
 end
