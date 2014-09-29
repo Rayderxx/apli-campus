@@ -32,6 +32,14 @@ module SessionsHelper
             end
         end
     end
+    
+    def get_formation_users
+         return RestClient::Request.execute(
+             method: :get,
+             url: 'http://localhost:3000/users/users_formation',
+             headers: self.get_header
+         )
+    end
 
     def get_header
         {'X-User-Email' => session[:email], 'X-User-Token' => session[:authentication_token]}
