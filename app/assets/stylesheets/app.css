@@ -1,100 +1,102 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-gsl7nr');
-	src:url('fonts/icomoon.eot?#iefix-gsl7nr') format('embedded-opentype'),
-		url('fonts/icomoon.woff?-gsl7nr') format('woff'),
-		url('fonts/icomoon.ttf?-gsl7nr') format('truetype'),
-		url('fonts/icomoon.svg?-gsl7nr#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?-gsl7nr');
+    src: url('fonts/icomoon.eot?#iefix-gsl7nr') format('embedded-opentype'), url('fonts/icomoon.woff?-gsl7nr') format('woff'), url('fonts/icomoon.ttf?-gsl7nr') format('truetype'), url('fonts/icomoon.svg?-gsl7nr#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
-
-[class^="icon-"], [class*="icon-"] {
-	display: block;
-	font-size: 5em;
-	margin-bottom: 10px;
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+[class^="icon-"],
+[class*="icon-"] {
+    display: block;
+    font-size: 5em;
+    margin-bottom: 10px;
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
 .icon-qrcode:before {
-	content: "\e601";
+    content: "\e601";
 }
 .icon-calendar:before {
-	content: "\e602";
+    content: "\e602";
 }
 .icon-wink:before {
-	content: "\e603";
+    content: "\e603";
 }
 .icon-uniE600:before {
-	content: "\e600";
+    content: "\e600";
 }
-
-html, body{
-	height:100%;	
+.icon-arrow-left:before {
+    content: "\e604";
 }
-
-.home{
-	text-align: center;
-	height: 100%;
-	width: 100%;
-	background: black;
+body {
+    font-family: 'Lucida Grande';
 }
-
-.home a{
-	text-decoration: none;
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
 }
-
-.menu{
-	border-radius: 7px;
-	padding: 12.5%;
+.top-buffer {
+    margin-top: 8px;
 }
+/* remove spacing between middle columns */
 
-.col-xs-6{
-	padding: 3px;
+.home .row.no-gutter[class*='col-']:not(:first-child):not(:last-child) {
+    padding-right: 4px;
+    padding-left: 4px;
 }
+/* remove right padding from first column */
 
-.presence{
-	background: #383838;
+.home .row.no-gutter[class*='col-']:first-child {
+    padding-right: 4px;
 }
+/* remove left padding from first column */
 
-a .presence{
-	color: #FFFFFF;
+.home .row.no-gutter[class*='col-']:last-child {
+    padding-left: 4px;
 }
-
-.agenda{
-	background: #ccdfcb;
+.home {
+    text-align: center;
+    width: 100%;
+    background: black;
+    padding-bottom: 2%;
 }
-
-a .agenda{
-	color: #383838;
+.menu {
+    border-radius: 7px;
+    padding: 12.5% 0;
 }
-
-.trombi{
-	background: #ff685f;
+.presence {
+    background: #383838;
 }
-
-a .trombi{
-	color: #ffffff;
+a .presence {
+    color: #FFFFFF;
 }
-
-.preference{
-	background: #ffffff;
+.agenda {
+    background: #ccdfcb;
 }
-
-a .preference{
-	color: #ff685f;
+a .agenda {
+    color: #383838;
 }
-
+.menu.trombi {
+    background: #ff685f;
+}
+a .menu.trombi {
+    color: #ffffff;
+}
+.preference {
+    background: #ffffff;
+}
+a .preference {
+    color: #ff685f;
+}
 input:focus,
 textarea:focus {
     outline: none;
@@ -120,7 +122,52 @@ textarea:focus {
     padding: 3px 15px;
     color: white;
 }
-
 .login h2 {
     color: #383838;
+}
+/* Trombi */
+
+.trombi,
+.profile {
+    text-align: center;
+}
+.trombi h2 {
+    color: #ff675a;
+    font-weight: bold;
+}
+.student {
+    min-height: 128px;
+}
+.student a {
+    color: #076486;
+    font-weight: bold;
+    font-size: .85em;
+}
+.thumb-picture {
+    border-radius: 50%;
+    margin: 0 auto 0 auto;
+}
+/*Profile*/
+
+.header {
+    background: #ff685f;
+    padding: 5% 0;
+    color: rgba(0, 0, 0, .3);
+    font-weight: bold;
+    font-size: .9em;
+}
+.back a {
+    position: absolute;
+    z-index: 1;
+    top: 4%;
+    left: 2%;
+    font-size: 0.6em;
+    color: rgba(0, 0, 0, .5);
+}
+.profile .thumb-picture {
+    border: 3px solid white;
+}
+.profile .name {
+    color: white;
+    font-weight: bold;
 }
