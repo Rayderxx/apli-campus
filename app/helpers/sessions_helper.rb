@@ -9,7 +9,7 @@ module SessionsHelper
     end
 
     def login_session_user(user_params)
-        @response = RestClient.post 'http://localhost:3000/sessions', {:params => user_params}
+        @response = RestClient.post 'http://10.40.74.28:3000/sessions', {:params => user_params}
         @response = JSON.parse(@response)
         unless @response['errors']
             session[:email] = @response['student']['email']
@@ -22,7 +22,7 @@ module SessionsHelper
         begin
             RestClient::Request.execute(
                 method: :get,
-                url: 'http://localhost:3000/sessions/signed_in',
+                url: 'http://10.40.74.28:3000/sessions/signed_in',
                 headers: self.get_header
             )
         rescue Exception

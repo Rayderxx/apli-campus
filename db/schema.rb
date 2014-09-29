@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925063128) do
+ActiveRecord::Schema.define(version: 20140923122918) do
 
   create_table "formations", force: true do |t|
     t.string   "name"
