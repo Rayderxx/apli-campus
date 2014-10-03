@@ -1,0 +1,8 @@
+<%= simple_form_for profile, url: update_profile_users_path do |f| %>
+    <%= f.input :email, input_html: { value: profile.email} %>
+    <%= f.simple_fields_for :information, Information.new do |d| %>
+        <%= d.input :description, input_html: { value: information.try(:description) } %>
+        <%= d.input :phone, input_html: { value: information.try(:phone) }%>
+    <% end %>
+    <%= f.button :submit %>
+<% end %>

@@ -39,7 +39,7 @@ app.service('Student', function ($http, $q) {
             console.log(that.students);
             deffered.resolve(that.students);
         } else {
-            $http.get('http://localhost:3001/users/formation_users')
+            $http.get('/users/formation_users')
                 .success(function (data, status) {
                     that.students = data.users;
                     deffered.resolve(that.students);

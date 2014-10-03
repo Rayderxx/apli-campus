@@ -9,8 +9,6 @@ class SessionsController < ApplicationController
         unless login
             render 'login'
         end
-
-        redirect_back_or(login)
     end
 
     def destroy

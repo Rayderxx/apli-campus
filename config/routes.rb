@@ -2,6 +2,8 @@ ApliCampus::Application.routes.draw do
   resources :users do 
     collection do
         get 'formation_users'
+        get 'edit_profile'
+        post 'update_profile'
     end
   end
   resources :sessions, only: [:create, :destroy] do

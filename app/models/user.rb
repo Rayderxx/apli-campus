@@ -1,18 +1,18 @@
 class User < ActiveRecord::Base
-    before_create :create_role
-    rolify
-    # Include default devise modules. Others available are:
-    # :confirmable, :lockable, :timeoutable and :omniauthable
-    devise :database_authenticatable, :registerable,
-           :recoverable, :rememberable, :trackable, :validatable
-    #relationships
-
-    #user information
-    has_one :information
-    has_many :promotions
-    has_many :formations, through: :promotion
-
-    def create_role
-        self.add_role self.type.downcase.to_sym
+    attr_accessor :first_name, :last_name, :email, :type, :roles, :authentication_token
+    def self.columns() @columns ||= []; end
+ 
+    def self.column(name, sql_type = nil, default = nil, null = true)
+        columns << ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default, sql_type.to_s, null)
     end
+    column :email, :string
+    column :type, :string
+    column :roles, :array
+    column :password, :string
+    column :first_name, :string
+    column :last_name, :string
+    column :information_id, :string
+
+    has_one :information
+    accepts_nested_attributes_for :information
 end

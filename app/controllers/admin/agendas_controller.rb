@@ -1,8 +1,4 @@
 class Admin::AgendasController < Admin::AdminController
-    require 'rest_client'
-    def index
-        RestClient.get 'http://localhost:3000'
-    end
 
     def show
     end
@@ -19,3 +15,4 @@ class Admin::AgendasController < Admin::AdminController
     def destroy
     end
 end
+
