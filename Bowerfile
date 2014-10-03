@@ -3,3 +3,5 @@
 asset 'angular'
 asset 'bootstrap'
 asset 'angular'
+asset 'fullcalendar'
+asset 'angular-ui-calendar'

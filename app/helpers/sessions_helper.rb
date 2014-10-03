@@ -36,7 +36,7 @@ module SessionsHelper
     def get_formation_users
          return RestClient::Request.execute(
              method: :get,
-             url: 'http://localhost:3000/users/users_formation',
+             url: 'http://10.40.74.28:3000/users/users_formation',
              headers: self.get_header
          )
     end

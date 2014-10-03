@@ -2,7 +2,8 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "angular": "latest",
-    "bootstrap": "latest"
-    "angular": "latest"
+    "bootstrap": "latest",
+    "fullcalendar": "latest",
+    "angular-ui-calendar": "latest"
   }
 }

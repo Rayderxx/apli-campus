@@ -1,6 +1,7 @@
 var app = angular.module('AngularRails', [
     'ngRoute',
-    'templates'
+    'templates',
+    'ui.calendar'
 ]);
 
 app.config(function ($routeProvider, $locationProvider) {
@@ -21,7 +22,8 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'settings.html'
         })
         .when('/agenda', {
-            templateUrl: 'agenda.html'
+            templateUrl: 'agenda.html',
+            controller: 'AgendaCtrl'
         })
         .otherwise({
             redirectTo: '/'
@@ -39,7 +41,7 @@ app.service('Student', function ($http, $q) {
             console.log(that.students);
             deffered.resolve(that.students);
         } else {
-            $http.get('/users/formation_users')
+            $http.get('http://localhost:3001/users/formation_users')
                 .success(function (data, status) {
                     that.students = data.users;
                     deffered.resolve(that.students);
@@ -47,7 +49,7 @@ app.service('Student', function ($http, $q) {
                     deffered.reject("Impossible de récupérer les données.");
                 });
         }
-        
+         
         return deffered.promise;
     };
 
