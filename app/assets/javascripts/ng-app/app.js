@@ -1,6 +1,7 @@
 var app = angular.module('AngularRails', [
     'ngRoute',
-    'templates'
+    'templates',
+    'ui.calendar'
 ]);
 
 app.config(function ($routeProvider, $locationProvider) {
@@ -21,7 +22,8 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'settings.html'
         })
         .when('/agenda', {
-            templateUrl: 'agenda.html'
+            templateUrl: 'agenda.html',
+            controller: 'AgendaCtrl'
         })
         .otherwise({
             redirectTo: '/'

@@ -1,5 +1,4 @@
-angular.module('AngularRails')
-    .controller('TrombiCtrl', function ($scope, Student  ) {
+app.controller('TrombiCtrl', function ($scope, Student  ) {
         $scope.loading = true;
         $scope.students = Student.getStudents().then(function (students) {
             $scope.loading = false;
