@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
         unless login
             render 'login'
         end
+
+        redirect_to root_path
     end
 
     def destroy
