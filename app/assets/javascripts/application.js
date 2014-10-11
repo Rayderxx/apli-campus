@@ -16,8 +16,9 @@
 //= require angular-route
 //= require bootstrap
 //= require fullcalendar
-//= require angular-rails-templates
+//= require angular-resource
 //= require angular-ui-calendar
+//= require angular-rails-templates
 //= require_tree ../templates
 //= require_tree .
 

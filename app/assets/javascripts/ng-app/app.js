@@ -1,5 +1,6 @@
 var app = angular.module('AngularRails', [
     'ngRoute',
+    'ngResource',
     'templates',
     'ui.calendar'
 ]);
@@ -17,6 +18,8 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/trombi/:id', {
             templateUrl: 'profile.html'
+        }).when('/trombi/:id/update', {
+            templateUrl: 'profile-update.html'
         })
         .when('/settings', {
             templateUrl: 'settings.html'
@@ -31,41 +34,26 @@ app.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 });
 
-app.service('Student', function ($http, $q) {
-    var that = this;
-    this.students = false;
 
-    this.getStudents = function () {
-        var deffered = $q.defer();
-        if (that.students !== false) {
-            console.log(that.students);
-            deffered.resolve(that.students);
-        } else {
-            $http.get('/users/formation_users')
-                .success(function (data, status) {
-                    that.students = data.users;
-                    deffered.resolve(that.students);
-                }).error(function (data, status) {
-                    deffered.reject("Impossible de récupérer les données.");
-                });
-        }
-         
-        return deffered.promise;
-    };
-
-    this.getStudent = function (id) {
-        var deffered = $q.defer();
-        var student = {};
-        var student = that.getStudents().then(function (posts) {
-            angular.forEach(posts, function (value, key) {
-                if (value.id == id) {
-                    student = value;
+app.factory('Student',
+    function ($resource) {
+        return $resource(
+            'http://localhost:3000/api/users/:id?user_email=tony.lucas@gmail.com&user_token=xyP6yAKMqeyT98N4uimp', null, {
+                'query': {
+                    method: 'GET',
+                    isArray: true,
+                    transformResponse: function (data) {
+                        return angular.fromJson(data).users
+                    }
                 }
             });
-            return deffered.resolve(student);
-        }, function (msg) {
-            deffered.reject(msg);
-        });
-        return deffered.promise;
-    };
-});
+    });
+
+app.factory('Session',
+    function ($resource) {
+        return $resource('http://localhost:3001/sessions', null, {
+                'query': {
+                    method: 'POST'
+                }
+            });
+    });

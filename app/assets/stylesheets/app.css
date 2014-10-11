@@ -1,43 +1,5 @@
-@font-face {
-    font-family: 'icomoon';
-    src: url('fonts/icomoon.eot?-gsl7nr');
-    src: url('fonts/icomoon.eot?#iefix-gsl7nr') format('embedded-opentype'), url('fonts/icomoon.woff?-gsl7nr') format('woff'), url('fonts/icomoon.ttf?-gsl7nr') format('truetype'), url('fonts/icomoon.svg?-gsl7nr#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-[class^="icon-"],
-[class*="icon-"] {
-    display: block;
-    font-size: 5em;
-    margin-bottom: 10px;
-    font-family: 'icomoon';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.icon-qrcode:before {
-    content: "\e601";
-}
-.icon-calendar:before {
-    content: "\e602";
-}
-.icon-wink:before {
-    content: "\e603";
-}
-.icon-uniE600:before {
-    content: "\e600";
-}
-.icon-arrow-left:before {
-    content: "\e604";
-}
 body {
-    font-family: 'Lucida Grande';
+    font-family: 'Lucida Grande', 'Arial', sans-serif;
 }
 a,
 a:hover,
@@ -49,18 +11,18 @@ a:focus {
 }
 /* remove spacing between middle columns */
 
-.home .row.no-gutter[class*='col-']:not(:first-child):not(:last-child) {
+.home .row.no-gutter [class*='col-']:not(:first-child):not(:last-child) {
     padding-right: 4px;
     padding-left: 4px;
 }
 /* remove right padding from first column */
 
-.home .row.no-gutter[class*='col-']:first-child {
+.home .row.no-gutter [class*='col-']:first-child {
     padding-right: 4px;
 }
 /* remove left padding from first column */
 
-.home .row.no-gutter[class*='col-']:last-child {
+.home .row.no-gutter [class*='col-']:last-child {
     padding-left: 4px;
 }
 .home {
@@ -144,6 +106,7 @@ textarea:focus {
     font-size: .85em;
 }
 .thumb-picture {
+    width: 70px;
     border-radius: 50%;
     margin: 0 auto 0 auto;
 }
@@ -156,13 +119,24 @@ textarea:focus {
     font-weight: bold;
     font-size: .9em;
 }
-.back a {
-    position: absolute;
+.button {
     z-index: 1;
-    top: 4%;
-    left: 2%;
-    font-size: 0.6em;
+    font-size: .6em;
     color: rgba(0, 0, 0, .5);
+}
+.button:hover{
+    color: rgba(0, 0, 0, .7);
+}
+.back {
+    position: absolute;
+    top: 1em;
+    left: 2%;
+}
+.update-profil {
+    position: absolute;
+    top: 1em;
+    right: 2%;
+    font-size: .5em;
 }
 .profile .thumb-picture {
     border: 3px solid white;
@@ -170,4 +144,16 @@ textarea:focus {
 .profile .name {
     color: white;
     font-weight: bold;
+}
+.social-media{
+    text-align: left;
+}
+.social-media [class^="icon-"] {
+    display: inline-block;
+    font-size: 1.6em;
+    margin: 0 10px 10px 0;
+}
+.social-media p {
+    display: inline-block;
+    vertical-align: 3px;
 }

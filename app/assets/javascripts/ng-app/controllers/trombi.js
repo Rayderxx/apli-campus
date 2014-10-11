@@ -1,9 +1,3 @@
-app.controller('TrombiCtrl', function ($scope, Student  ) {
-        $scope.loading = true;
-        $scope.students = Student.getStudents().then(function (students) {
-            $scope.loading = false;
-            $scope.students = students;
-        }, function (msg) {
-            alert(msg);
-        });
-    });
+app.controller('TrombiCtrl', function ($scope, Student, Session) {
+    $scope.students = Student.query();
+});
