@@ -1,7 +1,5 @@
 app.controller('ProfileCtrl', function ($scope, Student, $routeParams) {
-    Student.get({
+    $scope.student = Student.get({
         id: $routeParams.id
-    }, function (data) {
-        $scope.student = data.student;
     });
 });
