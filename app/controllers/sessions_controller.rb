@@ -13,6 +13,10 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end
 
+    def get_header
+        render json: {"X-User-Email" => session[:email], "X-User-Token" => session[:authentication_token]}
+    end
+
     def destroy
     end
 

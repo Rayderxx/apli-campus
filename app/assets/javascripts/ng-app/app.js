@@ -5,10 +5,44 @@ var app = angular.module('AngularRails', [
     'ui.calendar'
 ]);
 
+app.factory('Session', function ($http, $q) {
+    return {
+        getHeader: function () {
+            var deferred = $q.defer();
+            $http({
+                method: 'GET',
+                url: '/sessions/get_header'
+            }).
+            success(function (data, status, headers, config) {
+                deferred.resolve(data)
+            }).
+            error(function (data, status, headers, config) {
+                deferred.reject(status)
+            });
+
+            return deferred.promise;
+        },
+
+    }
+});
+app.run(function (Session, $rootScope) {
+    $rootScope.$on("$routeChangeStart", function (event, next, current) {
+        Session.getHeader().then(function (header) {
+            Session.header = header;
+        });
+    });
+});
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'home.html'
+            templateUrl: 'home.html',
+            resolve: {
+                header: function (Session) {
+                    Session.getHeader().then(function (header) {
+                        Session.header = header;
+                    });
+                }
+            }
         })
         .when('/login', {
             templateUrl: 'login.html'
@@ -35,25 +69,39 @@ app.config(function ($routeProvider, $locationProvider) {
 });
 
 
-app.factory('Student',
-    function ($resource) {
-        return $resource(
-            'http://localhost:3000/api/users/:id?user_email=tony.lucas@gmail.com&user_token=xyP6yAKMqeyT98N4uimp', null, {
-                'query': {
-                    method: 'GET',
-                    isArray: true,
-                    transformResponse: function (data) {
-                        return angular.fromJson(data).users
-                    }
-                }
-            });
-    });
 
-app.factory('Session',
-    function ($resource) {
-        return $resource('http://localhost:3001/sessions', null, {
-                'query': {
-                    method: 'POST'
+app.factory('Student',
+    function ($resource, Session, $rootScope) {
+        console.log(Session.header);
+        return $resource('http://localhost:3000/api', null, {
+            get: {
+                url: 'http://localhost:3000/api/users/:id',
+                headers: Session.header,
+                transformResponse: function (data) {
+                    return angular.fromJson(data).student;
                 }
-            });
+            },
+            query: {
+                url: 'http://localhost:3000/api/users/users_formation/',
+                headers: Session.header,
+                method: 'GET',
+                isArray: true,
+                transformResponse: function (data) {
+                    return angular.fromJson(data).users;
+                }
+            },
+            update: {
+                method: 'PUT',
+                url: 'http://localhost:3000/api/users/update_profile/',
+                headers: Session.header,
+                transformRequest: function (data) {
+                    return JSON.stringify({
+                        user: {
+                            email: data.email,
+                            information_attributes: data.information
+                        }
+                    });
+                }
+            }
+        });
     });
