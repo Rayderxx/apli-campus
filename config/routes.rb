@@ -6,15 +6,20 @@ ApliCampus::Application.routes.draw do
             post 'update_profile'
         end
     end
-    resources :sessions, only: [:create, :destroy] do
-        collection do
-            get 'login'
-        end
+  resources :sessions, only: [:create, :destroy] do
+    collection do
+        get 'login'
+        get 'get_header'
     end
-    namespace :admin do
-        resources :timesheets
-        resources :agendas
-    end
+  end
+  
+  resources :events 
+
+  namespace :admin do
+    resources :timesheets
+    resources :agendas
+  end
+
   
   root 'home#index'
   get '*path' => 'home#index'

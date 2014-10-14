@@ -1,11 +1,22 @@
 <section class="profile-update" ng-controller="ProfileUpdateCtrl">
-<h2>Mettre à jour mes informations</h2>
-<form ng-submit="">
-    Nom : <input type="text" ng-model="student.last_name"><br>
-    Prénom : <input type="text" ng-model="student.first_name">
-</form>
 
-<button type="submit" class="btn btn-primary">Valider</button>
-
-
+    <div class="container-fluid">
+        <a href="/home" class="button back"><i class="icon-arrow-left"></i></a>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <h3>Mettre à jour mes informations</h3>
+                <form ng-submit="editProfile()">
+                    Email :
+                    <input type="text" ng-model="student.email">
+                    <br>Téléphone :
+                    <input type="text" ng-model="student.information.phone">
+                    <br>Description :<br>
+                    <textarea rows="5" ng-model="student.information.description"></textarea>
+                    <button type="submit" class="btn btn-primary">Valider</button><br><br>
+                    <div ng-show="updateOk" class="alert alert-success">Profil mis à jour avec succès.</div>
+                    <div ng-show="updateNotOk" class="alert alert-danger ">Une erreur est survenue et votre profil n'a pas été mis à jour.</div>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
