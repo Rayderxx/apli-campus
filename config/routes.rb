@@ -11,6 +11,9 @@ ApliCampus::Application.routes.draw do
         get 'login'
     end
   end
+  
+  resources :events 
+
   namespace :admin do
     resources :timesheets
     resources :agendas
