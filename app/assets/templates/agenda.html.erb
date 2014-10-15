@@ -1,4 +1,6 @@
 <section class="container-fluid login" ng-controller="AgendaCtrl">
+    <a href="/home" class="button back"><i class="icon-arrow-left"></i></a>
+    <a href="/agenda-admin" ng-show="!isAdmin">Administration</a>
 
 <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
 

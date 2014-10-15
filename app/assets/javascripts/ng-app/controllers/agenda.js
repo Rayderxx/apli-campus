@@ -1,9 +1,8 @@
-app.controller('AgendaCtrl', function ($scope) {
+app.controller('AgendaCtrl', function ($scope, Student) {
 
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
+    Student.isAdmin(function (data) {
+        $scope.isAdmin = data.is_admin;
+    });
 
     // $scope.eventSources = [];
 
@@ -134,3 +133,4 @@ $provide.value("$locale", {
   "pluralCat": function (n, opt_precision) {  var i = n | 0;  if (i == 0 || i == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);
+
