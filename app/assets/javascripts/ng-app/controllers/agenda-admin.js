@@ -1,4 +1,4 @@
-app.controller('AgendaCtrl', function ($scope, Student) {
+app.controller('AgendaAdminCtrl', function ($scope, Student) {
 
     Student.isAdmin(function (data) {
         $scope.isAdmin = data.is_admin;
