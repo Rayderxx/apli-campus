@@ -11,7 +11,7 @@ app.factory('Session', function ($http, $q) {
             var deferred = $q.defer();
             $http({
                 method: 'GET',
-                url: '/sessions/get_header'
+                url: '/sessions/header'
             }).
             success(function (data, status, headers, config) {
                 deferred.resolve(data)
@@ -70,6 +70,7 @@ app.config(function ($routeProvider, $locationProvider) {
 
 
 
+<<<<<<< HEAD
 app.factory('Student',
     function ($resource, Session, $rootScope) {
         console.log(Session.header);
@@ -105,6 +106,39 @@ app.factory('Student',
             }
         });
     });
+app.factory('Student', function ($resource, Session, $rootScope) {
+   return $resource('http://localhost:3000/api', null, {
+       // get: {
+       //     url: 'http://localhost:3000/api/users/:id',
+       //     headers: Session.header,
+       //     transformResponse: function (data) {
+       //         return angular.fromJson(data).student;
+       //     }
+       // },
+       query: {
+           url: 'http://localhost:3000/api/users/users_formation/',
+           headers: Session.header,
+           method: 'GET',
+           isArray: true,
+           transformResponse: function (data) {
+               return angular.fromJson(data).users;
+           }
+       }
+       // update: {
+       //     method: 'PUT',
+       //     url: 'http://localhost:3000/api/users/update_profile/',
+       //     headers: Session.header,
+       //     transformRequest: function (data) {
+       //         return JSON.stringify({
+       //             user: {
+       //                 email: data.email,
+       //                 information_attributes: data.information
+       //             }
+       //         });
+       //     }
+       // }
+   });
+});
 
 
 

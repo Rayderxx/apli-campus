@@ -70,19 +70,25 @@ textarea:focus {
 .logo-ucp {
     margin-top: 40%;
 }
-.login input[type=text] {
+.login input[type=text],
+{
     margin-bottom: 10px;
     border: 2px solid #ff675a;
     text-align: center;
     border-radius: 5px;
     text-decoration: none;
 }
-.login input[type=submit] {
+.btn-large {
     background: #ff675a;
     border: none;
     border-radius: 5px;
     padding: 3px 15px;
     color: white;
+    transition: all .2s;
+}
+.btn-large:hover {
+    background: #e55d51;
+    transition: all .2s;
 }
 .login h2 {
     color: #383838;
@@ -124,7 +130,7 @@ textarea:focus {
     font-size: .6em;
     color: rgba(0, 0, 0, .5);
 }
-.button:hover{
+.button:hover {
     color: rgba(0, 0, 0, .7);
 }
 .back {
@@ -145,10 +151,10 @@ textarea:focus {
     color: white;
     font-weight: bold;
 }
-.social-media{
+.social-media {
     text-align: left;
 }
-.social-media [class^="icon-"] {
+.social-media[class^="icon-"] {
     display: inline-block;
     font-size: 1.6em;
     margin: 0 10px 10px 0;
@@ -156,4 +162,22 @@ textarea:focus {
 .social-media p {
     display: inline-block;
     vertical-align: 3px;
+}
+/*ProfileUpdate*/
+
+.profile-update input[type=text],
+.profile-update textarea,
+button {
+    width: 100%;
+}
+.profile-update h3 {
+    text-align: center;
+}
+.profile-update input[type=text],
+.profile-update textarea {
+    margin-bottom: 10px;
+    border: 2px solid #d1d1d1;
+    border-radius: 5px;
+    text-decoration: none;
+    text-indent: 4px;
 }

@@ -1,5 +1,5 @@
+
 app.controller('AgendaCtrl', function ($scope) {
-    /* event sources array*/
     // $scope.eventSources = [];
 
     /* config object */
@@ -24,13 +24,23 @@ app.controller('AgendaCtrl', function ($scope) {
         {
             title: 'Event2',
             start: '2014-10-15'
+        calendar:{
+            editable: true,
+            header:{
+                left: '',
+                center :'title',
+                right: 'prev,next'
+            },
+            firstDay:1,
+            lang:"fr",
+            eventResize: $scope.alertOnResize
         }
-    ],
-
-      }
     };
+    $scope.events = [
+      {title: 'All Day Event', start: new Date(), end: new Date()},
+    ];
+     $scope.eventSources = [$scope.events];
 });
-
 
 'use strict';
 angular.module("ngLocale", [], ["$provide", function($provide) {

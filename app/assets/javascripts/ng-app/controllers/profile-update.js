@@ -2,6 +2,8 @@ app.controller('ProfileUpdateCtrl', function ($scope, Student, $routeParams, $ti
 
     $scope.student = Student.get({
         id: $routeParams.id
+    }, function(){
+        console.log($scope.student);
     });
     
     $scope.editProfile = function () {

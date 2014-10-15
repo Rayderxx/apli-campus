@@ -12,7 +12,17 @@
                     <input type="text" ng-model="student.information.phone">
                     <br>Description :<br>
                     <textarea rows="5" ng-model="student.information.description"></textarea>
-                    <button type="submit" class="btn btn-primary">Valider</button><br><br>
+                    
+                    <br>Facebook :
+                    <input type="text" ng-model="student.information.facebook">
+                    
+                    <br>Twitter :
+                    <input type="text" ng-model="student.information.twitter">
+                    
+                    <br>LinkedIn :
+                    <input type="text" ng-model="student.information.linkedin">
+                    
+                    <button type="submit" class="btn-large">Valider</button><br><br>
                     <div ng-show="updateOk" class="alert alert-success">Profil mis à jour avec succès.</div>
                     <div ng-show="updateNotOk" class="alert alert-danger ">Une erreur est survenue et votre profil n'a pas été mis à jour.</div>
                 </form>
