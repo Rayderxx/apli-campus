@@ -9,7 +9,7 @@ ApliCampus::Application.routes.draw do
   resources :sessions, only: [:create, :destroy] do
     collection do
         get 'login'
-        get 'get_header'
+        get 'header'
     end
   end
   
