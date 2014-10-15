@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 app.controller('AgendaCtrl', function ($scope, Student) {
+=======
+'use strict';
+app.controller('AgendaCtrl', function ($scope) {
+>>>>>>> feature/amilti
 
     Student.isAdmin(function (data) {
         $scope.isAdmin = data.is_admin;
@@ -8,35 +13,24 @@ app.controller('AgendaCtrl', function ($scope, Student) {
 
     /* config object */
     $scope.uiConfig = {
-      calendar:{
-        editable: true,
-        header:{
-          left: '',
-          center :'title',
-          right: 'prev,next'
-        },
-        firstDay:1,
-        lang:"fr",
-        eventResize: $scope.alertOnResize,
-
-    events: [
-        {
-            title: 'Event1',
-            start: '2014-10-14',
-            end:'2014-10-17'
-        },
-        {
-            title: 'Event2',
-            start: '2014-10-15'
+        calendar:{
+            editable: true,
+            header:{
+                left: '',
+                center :'title',
+                right: 'prev,next'
+            },
+            firstDay:1,
+            lang:"fr",
+            eventResize: $scope.alertOnResize
         }
-    ],
-
-      }
     };
+    $scope.events = [
+      {title: 'All Day Event', start: new Date(), end: new Date()},
+    ];
+     $scope.eventSources = [$scope.events];
 });
 
-
-'use strict';
 angular.module("ngLocale", [], ["$provide", function($provide) {
 var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "many", OTHER: "other"};
 $provide.value("$locale", {

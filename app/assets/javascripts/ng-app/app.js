@@ -11,7 +11,7 @@ app.factory('Session', function ($http, $q) {
             var deferred = $q.defer();
             $http({
                 method: 'GET',
-                url: '/sessions/get_header'
+                url: '/sessions/header'
             }).
             success(function (data, status, headers, config) {
                 deferred.resolve(data)
