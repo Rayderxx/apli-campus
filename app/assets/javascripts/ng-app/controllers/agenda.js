@@ -1,10 +1,5 @@
 app.controller('AgendaCtrl', function ($scope) {
-
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-
+    /* event sources array*/
     // $scope.eventSources = [];
 
     /* config object */
@@ -13,7 +8,7 @@ app.controller('AgendaCtrl', function ($scope) {
         editable: true,
         header:{
           left: '',
-          center :'title',
+          center: 'title',
           right: 'prev,next'
         },
         firstDay:1,
@@ -24,7 +19,7 @@ app.controller('AgendaCtrl', function ($scope) {
         {
             title: 'Event1',
             start: '2014-10-14',
-            end:'2014-10-17'
+            end:'2014-10-15'
         },
         {
             title: 'Event2',
