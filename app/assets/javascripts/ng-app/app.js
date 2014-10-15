@@ -21,19 +21,16 @@ app.factory('Session', function ($http, $q) {
             });
 
             return deferred.promise;
-        }
+        },
+
     }
 });
-
-
 app.run(function (Session, $rootScope) {
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
         Session.getHeader().then(function (header) {
             Session.header = header;
         });
     });
-
-
 });
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -65,10 +62,6 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'agenda.html',
             controller: 'AgendaCtrl'
         })
-        .when('/agenda-admin', {
-            templateUrl: 'agenda-admin.html',
-            controller: 'AgendaAdminCtrl'
-        })
         .otherwise({
             redirectTo: '/'
         });
@@ -77,45 +70,39 @@ app.config(function ($routeProvider, $locationProvider) {
 
 
 
-app.factory('Student',
-    function ($resource, Session, $rootScope) {
-        return $resource('http://localhost:3000/api', null, {
-            get: {
-                url: 'http://localhost:3000/api/users/:id',
-                headers: Session.header,
-                transformResponse: function (data) {
-                    return angular.fromJson(data).student;
-                }
-            },
-            query: {
-                url: 'http://localhost:3000/api/users/users_formation/',
-                headers: Session.header,
-                method: 'GET',
-                isArray: true,
-                transformResponse: function (data) {
-                    return angular.fromJson(data).users;
-                }
-            },
-            update: {
-                method: 'PUT',
-                url: 'http://localhost:3000/api/users/update_profile/',
-                headers: Session.header,
-                transformRequest: function (data) {
-                    return JSON.stringify({
-                        user: {
-                            email: data.email,
-                            information_attributes: data.information
-                        }
-                    });
-                }
-            },
-            isAdmin: {
-                method: 'GET',
-                url: 'http://localhost:3000/api/sessions/is_admin',
-                headers: {
-                    'X-User-Email': 'tony3lucas@hotmail.fr',
-                    'X-User-Token': 'xyP6yAKMqeyT98N4uimp'
-                }
-            }
-        });
-    });
+app.factory('Student', function ($resource, Session, $rootScope) {
+   return $resource('http://localhost:3000/api', null, {
+       // get: {
+       //     url: 'http://localhost:3000/api/users/:id',
+       //     headers: Session.header,
+       //     transformResponse: function (data) {
+       //         return angular.fromJson(data).student;
+       //     }
+       // },
+       query: {
+           url: 'http://localhost:3000/api/users/users_formation/',
+           headers: Session.header,
+           method: 'GET',
+           isArray: true,
+           transformResponse: function (data) {
+               return angular.fromJson(data).users;
+           }
+       }
+       // update: {
+       //     method: 'PUT',
+       //     url: 'http://localhost:3000/api/users/update_profile/',
+       //     headers: Session.header,
+       //     transformRequest: function (data) {
+       //         return JSON.stringify({
+       //             user: {
+       //                 email: data.email,
+       //                 information_attributes: data.information
+       //             }
+       //         });
+       //     }
+       // }
+   });
+});
+
+
+
