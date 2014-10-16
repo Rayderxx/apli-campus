@@ -1,4 +1,21 @@
 <section class="container-fluid login" ng-controller="AgendaAdminCtrl">
     <a href="/agenda" class="button back"><i class="icon-arrow-left"></i></a>
     <h3>Administration Agenda</h3> 
+	
+	<h4>Créer un événement</h4>
+    <form ng-submit = "createEvent()">
+		Titre:
+		<input type="text" ng-model="event.events.description">
+		<br>
+		Date de début:
+		<input type="date" ng-model="event.events.start">
+		<br>
+		Date de fin:
+		<input type="date" ng-model="event.events.end">
+
+		<br>
+        <button type="submit">Valider</button>
+
+    </form>
+
 </section>

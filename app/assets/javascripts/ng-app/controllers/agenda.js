@@ -1,5 +1,9 @@
+app.controller('AgendaCtrl', function ($scope, Event, Student) {
 
-app.controller('AgendaCtrl', function ($scope) {
+    Student.isAdmin(function(data){
+      $scope.isAdmin = data.is_admin;
+    });
+    
     // $scope.eventSources = [];
 
     /* config object */
@@ -36,12 +40,28 @@ app.controller('AgendaCtrl', function ($scope) {
             eventResize: $scope.alertOnResize
         }
     };
-    $scope.events = [
-      {title: 'All Day Event', start: new Date(), end: new Date()},
-    ];
+
+    $scope.events = [];
+    events = Event.query (function(){
+      angular.forEach(events, function(value, key) {
+        $scope.events.push({title:value.description, start: value.date_start, end:value.date_end });
+      });
+    });
+
+
+    // $scope.events = [
+    //   {title: 'All Day Event', start: new Date(), end: new Date()},
+    // ];
+
      $scope.eventSources = [$scope.events];
+
 });
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> feature/rouksana
 'use strict';
 angular.module("ngLocale", [], ["$provide", function($provide) {
 var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "many", OTHER: "other"};
@@ -135,7 +155,14 @@ $provide.value("$locale", {
       }
     ]
   },
+<<<<<<< HEAD
   "id": "fr",
   "pluralCat": function (n, opt_precision) {  var i = n | 0;  if (i == 0 || i == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);
+=======
+  "id": "fr-fr",
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  if (i == 0 || i == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+});
+}]);
+>>>>>>> feature/rouksana

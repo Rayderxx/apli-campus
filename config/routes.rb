@@ -16,7 +16,7 @@ ApliCampus::Application.routes.draw do
 
   namespace :admin do
     resources :timesheets
-    resources :agendas
+    resources :events
   end
 
   
