@@ -3,43 +3,23 @@ app.controller('AgendaCtrl', function ($scope, Event, Student) {
     Student.isAdmin(function(data){
       $scope.isAdmin = data.is_admin;
     });
-    
+
     // $scope.eventSources = [];
 
     /* config object */
     $scope.uiConfig = {
-      calendar:{
-        editable: true,
-        header:{
-          left: '',
-          center: 'title',
-          right: 'prev,next'
-        },
-        firstDay:1,
-        lang:"fr",
-        eventResize: $scope.alertOnResize,
-
-    events: [
-        {
-            title: 'Event1',
-            start: '2014-10-14',
-            end:'2014-10-15'
-        },
-        {
-            title: 'Event2',
-            start: '2014-10-15'
         calendar:{
-            editable: true,
+            editable: false,
             header:{
                 left: '',
-                center :'title',
+                center: 'title',
                 right: 'prev,next'
             },
             firstDay:1,
             lang:"fr",
             eventResize: $scope.alertOnResize
         }
-    };
+    }
 
     $scope.events = [];
     events = Event.query (function(){
@@ -57,11 +37,6 @@ app.controller('AgendaCtrl', function ($scope, Event, Student) {
 
 });
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> feature/rouksana
 'use strict';
 angular.module("ngLocale", [], ["$provide", function($provide) {
 var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "many", OTHER: "other"};
@@ -155,14 +130,7 @@ $provide.value("$locale", {
       }
     ]
   },
-<<<<<<< HEAD
-  "id": "fr",
-  "pluralCat": function (n, opt_precision) {  var i = n | 0;  if (i == 0 || i == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
-});
-}]);
-=======
   "id": "fr-fr",
   "pluralCat": function (n, opt_precision) {  var i = n | 0;  if (i == 0 || i == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);
->>>>>>> feature/rouksana
