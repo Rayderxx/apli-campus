@@ -8,15 +8,15 @@ app.controller('AgendaCtrl', function ($scope, Event, Student) {
 
     /* config object */
     $scope.uiConfig = {
-        calendar:{
+        calendar: {
             editable: false,
-            header:{
+            header: {
                 left: '',
                 center: 'title',
                 right: 'prev,next'
             },
-            firstDay:1,
-            lang:"fr",
+            firstDay: 1,
+            lang: "fr",
             eventResize: $scope.alertOnResize
         }
     }

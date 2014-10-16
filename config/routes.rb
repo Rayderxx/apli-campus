@@ -1,6 +1,7 @@
 ApliCampus::Application.routes.draw do
     resources :users do 
         collection do
+            get 'profile'
             get 'formation_users'
             get 'edit_profile'
             post 'update_profile'

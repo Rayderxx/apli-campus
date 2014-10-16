@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     end
 
     def show
+       
     end
 
     def create
@@ -18,6 +19,10 @@ class UsersController < ApplicationController
     end
 
     def destroy
+    end
+    
+    def profile
+        render json: user_profile
     end
 
     def formation_users
@@ -42,6 +47,6 @@ class UsersController < ApplicationController
 
     private
         def user_params
-            params.require(:user).permit(:email, information_attributes: [:description, :phone])
+            params.require(:user).permit(:email, information_attributes: [:description, :phone, :facebook, :twitter, :linkedin])
         end
 end

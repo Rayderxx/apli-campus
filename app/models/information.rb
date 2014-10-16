@@ -13,4 +13,7 @@ class Information < ActiveRecord::Base
     column :user_id, :int
     column :created_at, :string
     column :updated_at, :sting
+    column :facebook, :sting
+    column :twitter, :sting
+    column :linkedin, :sting
 end

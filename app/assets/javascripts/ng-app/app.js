@@ -21,7 +21,7 @@ app.factory('Session', function ($http, $q) {
             });
 
             return deferred.promise;
-        },
+        }
 
     }
 });
@@ -52,7 +52,8 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/trombi/:id', {
             templateUrl: 'profile.html'
-        }).when('/trombi/:id/update', {
+        })
+        .when('/trombi/:id/update', {
             templateUrl: 'profile-update.html'
         })
         .when('/settings', {
@@ -74,42 +75,41 @@ app.config(function ($routeProvider, $locationProvider) {
 
 
 app.factory('Student', function ($resource, Session, $rootScope) {
-   return $resource('http://localhost:3000/api', null, {
-       get: {
-           url: 'http://localhost:3000/api/users/:id',
-           headers: Session.header,
-           transformResponse: function (data) {
-               return angular.fromJson(data).student;
-           }
-       },
-       query: {
-           url: 'http://localhost:3000/api/users/users_formation/',
-           headers: Session.header,
-           method: 'GET',
-           isArray: true,
-           transformResponse: function (data) {
-               return angular.fromJson(data).users;
-           }
-       },
-       update: {
-           method: 'PUT',
-           url: 'http://localhost:3000/api/users/update_profile/',
-           headers: Session.header,
-           transformRequest: function (data) {
-               return JSON.stringify({
-                   user: {
-                       email: data.email,
-                       information_attributes: data.information
-                   }
-               });
-           }
-       },
-       isAdmin: {
+    return $resource('http://localhost:3001', null, {
+        query: {
+            url: '/users/formation_users',
+            method: 'GET',
+            isArray: true,
+            transformResponse: function (data) {
+                return angular.fromJson(data).users;
+            }
+        },
+        update: {
+            method: 'POST',
+            url: '/users/update_profile',
+            headers: Session.header,
+            transformRequest: function (data) {
+                return JSON.stringify({
+                    user: {
+                        email: data.email,
+                        information_attributes: data.information
+                    }
+                });
+            }
+        },
+        getCurrentUser: {
+            method: 'GET',
+            url: '/users/profile',
+            transformResponse: function (data) {
+                return angular.fromJson(data).student;
+            }
+        },
+        isAdmin: {
         method: 'GET',
-        url: 'http://localhost:3000/api/sessions/is_admin',      
+        url: '/api/sessions/is_admin',      
         headers: Session.header
        }
-   });
+    });
 });
 
 app.factory('Event', function ($resource, Session) {
@@ -127,6 +127,3 @@ app.factory('Event', function ($resource, Session) {
        }
    });
 });
-
-
-
