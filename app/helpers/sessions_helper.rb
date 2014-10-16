@@ -36,7 +36,7 @@ module SessionsHelper
         end
     end
 
-    #get user profile
+    #get current user profile
     def user_profile
         @response = JSON.parse(@rest['users/profile'].get)
     end

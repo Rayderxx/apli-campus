@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923122918) do
+ActiveRecord::Schema.define(version: 20141016125802) do
 
   create_table "formations", force: true do |t|
     t.string   "name"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 20140923122918) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linkedin"
   end
 
   add_index "information", ["user_id"], name: "index_information_on_user_id", using: :btree

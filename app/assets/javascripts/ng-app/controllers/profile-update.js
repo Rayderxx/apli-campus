@@ -1,11 +1,7 @@
-app.controller('ProfileUpdateCtrl', function ($scope, Student, $routeParams, $timeout) {
+app.controller('ProfileUpdateCtrl', function ($scope, Student, $timeout) {
 
-    $scope.student = Student.get({
-        id: $routeParams.id
-    }, function(){
-        console.log($scope.student);
-    });
-    
+    $scope.student = Student.getCurrentUser();
+
     $scope.editProfile = function () {
         Student.update(null, $scope.student, function () {
             $scope.updateOk = true;

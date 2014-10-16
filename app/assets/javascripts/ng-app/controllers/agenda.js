@@ -1,4 +1,3 @@
-
 app.controller('AgendaCtrl', function ($scope) {
 
 
@@ -6,21 +5,24 @@ app.controller('AgendaCtrl', function ($scope) {
 
     /* config object */
     $scope.uiConfig = {
-        calendar:{
-            editable: true,
-            header:{
+        calendar: {
+            editable: false,
+            header: {
                 left: '',
-                center :'title',
+                center: 'title',
                 right: 'prev,next'
             },
-            firstDay:1,
-            lang:"fr",
+            firstDay: 1,
+            lang: "fr",
             eventResize: $scope.alertOnResize
         }
     };
     $scope.events = [
-      {title: 'All Day Event', start: new Date(), end: new Date()},
+        {
+            title: 'All Day Event',
+            start: new Date(),
+            end: new Date()
+        },
     ];
-     $scope.eventSources = [$scope.events];
+    $scope.eventSources = [$scope.events];
 });
-
