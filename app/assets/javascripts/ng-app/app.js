@@ -63,6 +63,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'agenda.html',
             controller: 'AgendaCtrl'
         })
+        .when('/agenda-admin', {
+            templateUrl: 'agenda-admin.html',
+            controller: 'AgendaAdminCtrl'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -70,8 +74,8 @@ app.config(function ($routeProvider, $locationProvider) {
 });
 
 
-
 app.factory('Student', function ($resource, Session, $rootScope) {
+<<<<<<< HEAD
     return $resource('http://localhost:3001', null, {
         query: {
             url: '/users/formation_users',
@@ -100,6 +104,27 @@ app.factory('Student', function ($resource, Session, $rootScope) {
             transformResponse: function (data) {
                 return angular.fromJson(data).student;
             }
-        }
+        },
+        isAdmin: {
+        method: 'GET',
+        url: '/api/sessions/is_admin',      
+        headers: Session.header
+       }
     });
+});
+
+app.factory('Event', function ($resource, Session) {
+   return $resource('http://localhost:3000/api', null, {
+       query: {
+           url: 'http://localhost:3000/api/events',
+           headers: Session.header,
+           method: 'GET',
+           isArray: true,
+       },
+       create:{
+           url: 'http://localhost:3001/admin/events',
+           method: 'POST',
+           isArray: true,
+       }
+   });
 });

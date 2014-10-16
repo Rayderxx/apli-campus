@@ -13,12 +13,11 @@ ApliCampus::Application.routes.draw do
         get 'header'
     end
   end
-  
   resources :events 
 
   namespace :admin do
     resources :timesheets
-    resources :agendas
+    resources :events
   end
 
   

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
         unless user_signed_in?
             store_location
             @user = User.new
-            redirect_to login_sessions_path , notice: "Please sign in."
+            redirect_to login_sessions_path  
         end
     end
 
