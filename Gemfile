@@ -49,3 +49,4 @@ end
 
 # Use debugger
 gem 'rack-cors', :require => 'rack/cors'
+gem 'debugger', group: [:development, :test]

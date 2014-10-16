@@ -3,7 +3,7 @@ class Admin::EventsController < Admin::AdminController
  end
 
  def create
- 	@response = @rest['admin/events'].post event_params
+ 	@response = @rest['admin/events'].post "test"
  end
 
  def edit

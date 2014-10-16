@@ -16,7 +16,7 @@ module SessionsHelper
     #params email
     #params password
     def login_session_user(user_params)
-        @response = @rest['sessions'].post user_params
+        @response = @rest['sessions/create_user'].post user_params
         @response = JSON.parse(@response)
         unless @response['errors']
             session[:email] = @response['student']['email']

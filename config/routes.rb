@@ -15,6 +15,7 @@ ApliCampus::Application.routes.draw do
   resources :events 
 
   namespace :admin do
+    get '/' => 'admin#index'
     resources :timesheets
     resources :events
   end
