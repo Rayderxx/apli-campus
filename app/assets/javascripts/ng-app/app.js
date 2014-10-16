@@ -75,7 +75,6 @@ app.config(function ($routeProvider, $locationProvider) {
 
 
 app.factory('Student', function ($resource, Session, $rootScope) {
-<<<<<<< HEAD
     return $resource('http://localhost:3001', null, {
         query: {
             url: '/users/formation_users',
