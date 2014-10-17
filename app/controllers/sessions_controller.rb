@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
         unless login
             render 'login'
         end
-        debugger
         if login["user"]["roles"].first["name"] == "admin"
             redirect_to admin_path
         else
