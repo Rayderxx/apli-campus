@@ -22,7 +22,8 @@ app.controller('AgendaCtrl', function ($scope, Event, Student) {
     }
 
     $scope.events = [];
-    events = Event.query (function(){
+    events = Event.query (function(data){
+        console.log(data);
       angular.forEach(events, function(value, key) {
         $scope.events.push({title:value.description, start: value.date_start, end:value.date_end });
       });

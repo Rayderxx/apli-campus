@@ -19,8 +19,8 @@ module SessionsHelper
         @response = @rest['sessions/create_user'].post user_params
         @response = JSON.parse(@response)
         unless @response['errors']
-            session[:email] = @response['student']['email']
-            session[:authentication_token] = @response['student']['authentication_token']
+            session[:email] = @response['user']['email']
+            session[:authentication_token] = @response['user']['authentication_token']
         end
         @response['errors'] ? false : @response
     end
