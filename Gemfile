@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.3'
 
 # Use mysql as the database for Active Record
-gem 'mysql2'
 gem 'devise'
 gem "rolify"
 # Use SCSS for stylesheets
@@ -38,7 +37,12 @@ group :doc do
 end
 
 group :developemnt do
+  gem 'mysql2'
   gem 'capistrano'
+  gem 'capistrano-puma', require: false
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rvm',   '~> 0.1', require: false
 end
 
 group :production do
