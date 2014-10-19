@@ -1,13 +1,12 @@
-set :stage, :production
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-role :app, %w{vagrant@192.168.33.28}
-role :web, %w{vagrant@192.168.33.28}
-role :db,  %w{vagrant@192.168.33.28}
+role :app, %w{deploy@192.168.33.28}
+role :web, %w{deploy@192.168.33.28}
+role :db,  %w{deploy@192.168.33.28}
 
 # Extended Server Syntax
 # ======================
@@ -15,13 +14,13 @@ role :db,  %w{vagrant@192.168.33.28}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '192.168.33.28', user: 'vagrant', roles: %w{web app},
+server 'example.com', user: 'deploy', roles: %w{web app},
 ssh_options: {
-    user: 'vagrant', # overrides user setting above
+    user: 'deploy',
     keys: %w(/home/user_name/.ssh/id_rsa),
     forward_agent: false,
-    auth_methods: %w(publickey password),
-    password: 'vagrant'
+    auth_methods: %w(publickey password)
+    password: 'mqpxgbrx,'
 }
 
 # you can set custom ssh options
