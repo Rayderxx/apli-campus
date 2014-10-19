@@ -14,12 +14,12 @@ role :db,  %w{deploy@192.168.33.28}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server 'example.com', user: 'deploy', roles: %w{web app},
+server '192.168.33.28', user:'deploy', roles: %w{web app},
 ssh_options: {
     user: 'deploy',
     keys: %w(/home/user_name/.ssh/id_rsa),
     forward_agent: false,
-    auth_methods: %w(publickey password)
+    auth_methods: %w(publickey password),
     password: 'mqpxgbrx,'
 }
 
