@@ -103,11 +103,6 @@ app.factory('Student',['$resource', 'Session', '$rootScope', function ($resource
                 return angular.fromJson(data).student;
             }
         },
-        isAdmin: {
-            method: 'GET',
-            headers: Session.header,
-            url: 'http://localhost:3000/api/sessions/is_admin'
-        },
         logout: {
             method: 'DELETE',
             headers: Session.header,

@@ -1,11 +1,5 @@
 'use strict';
 app.controller('AgendaCtrl', ['$scope', 'Event', 'Student', function ($scope, Event, Student) {
-
-    Student.isAdmin(function(data){
-      $scope.isAdmin = data.is_admin;
-        console.log(data);
-    });
-
     // $scope.eventSources = [];
 
     /* config object */
@@ -31,8 +25,8 @@ app.controller('AgendaCtrl', ['$scope', 'Event', 'Student', function ($scope, Ev
     }
 
     $scope.events = [];
-    events = Event.query (function(data){
-      angular.forEach(events, function(value, key) {
+    Event.query(function(data){
+      angular.forEach(data, function(value, key) {
         var start = moment(value.date_start)
         var end   = moment(value.date_end)
         $scope.events.push(
