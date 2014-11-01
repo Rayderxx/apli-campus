@@ -8,6 +8,9 @@ role :app, %w{appli-campus@178.62.95.127}
 role :web, %w{appli-campus@178.62.95.127}
 role :db,  %w{appli-campus@178.62.95.127}
 
+set :scm, :git
+set :branch, "feature/amilti"
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server
