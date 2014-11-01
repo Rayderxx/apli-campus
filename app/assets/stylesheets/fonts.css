@@ -38,27 +38,33 @@
 }
 .icon-twitter-square:before {
 	content: "\f081";
+    color: #27aae2;
 }
 .icon-facebook-square:before {
 	content: "\f082";
+    color: #385a99;
 }
 .icon-linkedin-square:before {
 	content: "\f08c";
+    color: #137bb8;
 }
 .icon-github-square:before {
 	content: "\f092";
+    color: #343434;
 }
 .icon-phone-square:before {
 	content: "\f098";
 }
 .icon-google-plus-square:before {
 	content: "\f0d4";
+    color: #cf3631;
 }
 .icon-skype:before {
 	content: "\f17e";
 }
 .icon-vine:before {
 	content: "\f1ca";
+    color: #02a379;
 }
 .icon-arrow-left:before {
 	content: "\e604";

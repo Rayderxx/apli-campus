@@ -1,23 +1,31 @@
 <section class="profile" ng-controller="ProfileCtrl">
     <div class="header">
         <a href="/trombi" class="button back"><i class="icon-arrow-left"></i></a>
-<!--        <a href="/trombi/{{student.id}}/update" class="button update-profil"><i class="icon-cogs"></i></a>-->
+        <a ng-show="student.id==currentUser.id" href="/trombi/{{student.id}}/update" class="button update-profil"><span class="btn2">Mettre à jour</span></a>
         <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Emblem-cool.svg/80px-Emblem-cool.svg.png" alt="" class="thumb-picture img-responsive"><span class="name">{{student.first_name}} {{student.last_name}}</span>
         <br>{{student.formation}}
     </div>
-    
-    <div class="container-fluid social-media top-buffer">
+
+    <div class="container-fluid informations top-buffer">
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
                 <div ng-show="student.email"><i class="icon-envelope"></i><p>{{student.email}}</p></div>
                 <div ng-show="student.information.phone"><i class="icon-phone-square"></i><p>{{student.information.phone}}</p></div>
-                <div ng-show="student.information.facebook"><i class="icon-facebook-square"></i><p>{{student.information.facebook}}</p></div>
-                <div ng-show="student.information.twitter"><i class="icon-twitter-square"></i><p>{{student.information.twitter}}</p></div>
-                <div ng-show="student.information.skype"><i class="icon-skype-square"></i><p>{{student.information.skype}}</p></div>
-                <div ng-show="student.information.google"><i class="icon-google-plus-square"></i><p>{{student.information.twitter}}</p></div>
-                <div ng-show="student.information.linkedin"><i class="icon-linkedin-square"></i><p>{{student.information.linkedin}}</p></div>
-                <div ng-show="student.information.github"><i class="icon-github-square"></i><p>{{student.information.github}}</p></div>
-                <div ng-show="student.information.vine"><i class="icon-vine"></i><p>{{student.information.vine}}</p></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid social-media top-buffer">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">                
+                <a ng-show="student.information.facebook" href="{{student.information.facebook}}"><i class="icon-facebook-square"></i></a>
+                <a ng-show="student.information.twitter" href="{{student.information.twitter}}"><i class="icon-twitter-square"></i></a>
+                <a ng-show="student.information.skype" href="{{student.information.skype}}"><i class="icon-skype-square"></i></a>
+                <a ng-show="student.information.google" href="{{student.information.google}}"><i class="icon-google-square"></i></a>
+                <a ng-show="student.information.linkedin" href="{{student.information.linkedin}}"><i class="icon-linkedin-square"></i></a>
+                <a ng-show="student.information.github" href="{{student.information.github}}"><i class="icon-twitter-github"></i></a>
+                <a ng-show="student.information.vine" href="{{student.information.vine}}"><i class="icon-vine"></i></a>
             </div>
         </div>
     </div>

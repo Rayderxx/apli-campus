@@ -6,22 +6,25 @@
             <div class="col-xs-10 col-xs-offset-1">
                 <h3>Mettre à jour mes informations</h3>
                 <form ng-submit="editProfile()">
-                    Email :
-                    <input type="text" ng-model="student.email">
-                    <br>Téléphone :
-                    <input type="text" ng-model="student.information.phone">
-                    <br>Description :<br>
-                    <textarea rows="5" ng-model="student.information.description"></textarea>
+                    <label for="">Email :</label>
+                    <input type="text" class="form-control" ng-model="student.email">
+                    <br><label for="">Téléphone :</label>
+                    <input type="text" class="form-control" ng-model="student.information.phone">
+                    <br><label for="">Description :</label><br>
+                    <textarea rows="5" class="form-control" ng-model="student.information.description"></textarea>
                     
-                    <br>Facebook :
-                    <input type="text" ng-model="student.information.facebook">
+                    <hr>
+                    <h4>Liens vers mes profils sociaux</h4>
+                    <label for="">Facebook :</label>
+                    <input type="text" class="form-control" ng-model="student.information.facebook">
                     
-                    <br>Twitter :
-                    <input type="text" ng-model="student.information.twitter">
+                    <br><label for="">Twitter :</label>
+                    <input type="text" class="form-control" ng-model="student.information.twitter">
                     
-                    <br>LinkedIn :
-                    <input type="text" ng-model="student.information.linkedin">
+                    <br><label for="">LinkedIn :</label>
+                    <input type="text" class="form-control" ng-model="student.information.linkedin">
                     
+                    <br>
                     <button type="submit" class="btn-large">Valider</button><br><br>
                     <div ng-show="updateOk" class="alert alert-success">Profil mis à jour avec succès.</div>
                     <div ng-show="updateNotOk" class="alert alert-danger ">Une erreur est survenue et votre profil n'a pas été mis à jour.</div>
