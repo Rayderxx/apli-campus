@@ -107,6 +107,11 @@ app.factory('Student', function ($resource, Session, $rootScope) {
             method: 'GET',
             headers: Session.header,
             url: 'http://localhost:3000/api/sessions/is_admin'
+        },
+        logout: {
+            method: 'DELETE',
+            headers: Session.header,
+            url: '/sessions/:id'
         }
     });
 });

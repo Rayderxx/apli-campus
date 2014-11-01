@@ -1,12 +1,12 @@
 <section class="profile" ng-controller="ProfileCtrl">
     <div class="header">
-        <a href="/trombi" class="button back"><i class="icon-arrow-left"></i></a>
-        <a ng-show="student.id==currentUser.id" href="/trombi/{{student.id}}/update" class="button update-profil"><span class="btn2">Mettre à jour</span></a>
+        <a ng-click="back()" class="button back"><i class="icon-arrow-left"></i></a>
+        <a ng-show="student.id==currentUser.id" href="/trombi/{{student.id}}/update" class="button top-left"><span class="btn2">Mettre à jour</span></a>
         <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Emblem-cool.svg/80px-Emblem-cool.svg.png" alt="" class="thumb-picture img-responsive"><span class="name">{{student.first_name}} {{student.last_name}}</span>
         <br>{{student.formation}}
     </div>
 
-    <div class="container-fluid informations top-buffer">
+    <div class="container-fluid informations top-buffer text-left">
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
                 <div ng-show="student.email"><i class="icon-envelope"></i><p>{{student.email}}</p></div>

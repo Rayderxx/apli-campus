@@ -13,5 +13,14 @@ app.controller('ProfileUpdateCtrl', function ($scope, Student, $timeout) {
         });
     };
 
+    $scope.back = function () {
+        window.history.back();
+    }
+
+    $scope.logout = function () {
+        Student.logout({
+            id: $scope.student.id
+        });
+    }
 
 });

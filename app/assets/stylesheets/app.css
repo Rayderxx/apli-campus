@@ -70,8 +70,8 @@ textarea:focus {
 .logo-ucp {
     margin-top: 40%;
 }
-.login input[type=text],
-{
+.login input[type=email],    
+.login input[type=password] {
     margin-bottom: 10px;
     border: 2px solid #ff675a;
     text-align: center;
@@ -117,12 +117,19 @@ textarea:focus {
     margin: 0 auto 0 auto;
 }
 /*Profile*/
-.btn2{
-    font-size: 12px;
+
+.btn2 {
     background: white;
     padding: 2px 8px;
     border-radius: 4px;
     color: #ff685f;
+}
+.btn3 {
+    font-size: 12px;
+    background: #ff685f;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: white;
 }
 .header {
     background: #ff685f;
@@ -133,7 +140,7 @@ textarea:focus {
 }
 .button {
     z-index: 1;
-    font-size: .6em;
+    font-size: 1em;
     color: rgba(0, 0, 0, .5);
 }
 .button:hover {
@@ -144,11 +151,14 @@ textarea:focus {
     top: 1em;
     left: 2%;
 }
-.update-profil {
+.back i {
+    font-size: 3em;
+}
+.top-left {
     position: absolute;
     top: 1em;
     right: 2%;
-    font-size: .5em;
+    font-size: .8em;
 }
 .profile .thumb-picture {
     border: 3px solid white;
@@ -156,9 +166,6 @@ textarea:focus {
 .profile .name {
     color: white;
     font-weight: bold;
-}
-.informations {
-    text-align: left;
 }
 .social-media [class^="icon-"] {
     display: inline-block;
@@ -168,7 +175,6 @@ textarea:focus {
     display: inline-block;
     vertical-align: 3px;
 }
-
 .profile .informations [class^="icon-"] {
     display: inline-block;
     font-size: 1.6em;
@@ -182,7 +188,4 @@ textarea:focus {
 .profile-update textarea,
 button {
     width: 100%;
-}
-.profile-update h3 {
-    text-align: center;
 }
