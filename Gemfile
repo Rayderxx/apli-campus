@@ -36,13 +36,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
-    gem 'capistrano',         require: false
-    gem 'capistrano-rvm',     require: false
-    gem 'capistrano-rails',   require: false
-    gem 'capistrano-bundler', require: false
-    gem 'capistrano3-puma',   require: false
-end
 
 group :production do
     gem 'puma'
@@ -59,4 +52,3 @@ end
 
 # Use debugger
 gem 'rack-cors', :require => 'rack/cors'
-gem 'debugger', group: [:development, :test]
