@@ -1,1 +1,24 @@
-test
+<%= @presences["description"] %>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="3">
+                <%= "du #{@presences["date_start"]} au #{@presences["date_end"]} - #{@presences["description"]}"%>
+            </th>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Présent</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%@presences["students"].each do |student| %>
+            <tr>
+                <td><%= student["last_name"] %></td>
+                <td><%= student["first_name"] %></td>
+                <td><%= is_present?(student["id"], @presences["id"] ) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

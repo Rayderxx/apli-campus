@@ -7,8 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="AngularRails">
-
-<%= yield %>
-
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li class="<%= 'active' if controller?("admin/admin") && action?("index") %>">
+                <%= link_to("Présence", admin_path) %>
+            </li>
+            <li class="<%= 'active' if controller?("admin/events") && action?("index") %>">
+                <%= link_to("Emploi du temps",  admin_events_path) %>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content">
+    <%= yield %>
+</div>
 </body>
 </html>
