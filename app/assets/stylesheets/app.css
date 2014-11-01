@@ -79,8 +79,8 @@ textarea:focus {
 .logo-ucp {
     margin-top: 40%;
 }
-.login input[type=text],
-{
+.login input[type=email],    
+.login input[type=password] {
     margin-bottom: 10px;
     border: 2px solid #ff675a;
     text-align: center;
@@ -127,6 +127,19 @@ textarea:focus {
 }
 /*Profile*/
 
+.btn2 {
+    background: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #ff685f;
+}
+.btn3 {
+    font-size: 12px;
+    background: #ff685f;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: white;
+}
 .header {
     background: #ff685f;
     padding: 5% 0;
@@ -136,7 +149,7 @@ textarea:focus {
 }
 .button {
     z-index: 1;
-    font-size: .6em;
+    font-size: 1em;
     color: rgba(0, 0, 0, .5);
 }
 .button:hover {
@@ -147,11 +160,14 @@ textarea:focus {
     top: 1em;
     left: 2%;
 }
-.update-profil {
+.back i {
+    font-size: 3em;
+}
+.top-left {
     position: absolute;
     top: 1em;
     right: 2%;
-    font-size: .5em;
+    font-size: .8em;
 }
 .profile .thumb-picture {
     border: 3px solid white;
@@ -160,17 +176,20 @@ textarea:focus {
     color: white;
     font-weight: bold;
 }
-.social-media {
-    text-align: left;
-}
-.social-media[class^="icon-"] {
+.social-media [class^="icon-"] {
     display: inline-block;
-    font-size: 1.6em;
-    margin: 0 10px 10px 0;
+    font-size: 3em;
 }
-.social-media p {
+.profile .informations p {
     display: inline-block;
     vertical-align: 3px;
+}
+.profile .informations [class^="icon-"] {
+    display: inline-block;
+    font-size: 1.6em;
+    top: 2px;
+    position: relative;
+    right: 6px;
 }
 /*ProfileUpdate*/
 
@@ -178,15 +197,4 @@ textarea:focus {
 .profile-update textarea,
 button {
     width: 100%;
-}
-.profile-update h3 {
-    text-align: center;
-}
-.profile-update input[type=text],
-.profile-update textarea {
-    margin-bottom: 10px;
-    border: 2px solid #d1d1d1;
-    border-radius: 5px;
-    text-decoration: none;
-    text-indent: 4px;
 }

@@ -1,4 +1,8 @@
 app.controller('ProfileCtrl', function ($scope, Student, $routeParams) {
+
+    $scope.currentUser = Student.getCurrentUser();
+
+
     Student.query(function (students) {
         l = students.length;
         for (i = 0; i < l; i++) {
@@ -7,4 +11,8 @@ app.controller('ProfileCtrl', function ($scope, Student, $routeParams) {
             }
         }
     });
+
+    $scope.back = function () {
+        window.history.back();
+    }
 });

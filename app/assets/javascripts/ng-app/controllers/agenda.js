@@ -2,6 +2,7 @@ app.controller('AgendaCtrl', function ($scope, Event, Student) {
 
     Student.isAdmin(function(data){
       $scope.isAdmin = data.is_admin;
+        console.log(data);
     });
 
     // $scope.eventSources = [];
@@ -22,12 +23,12 @@ app.controller('AgendaCtrl', function ($scope, Event, Student) {
     }
 
     $scope.events = [];
-    events = Event.query (function(data){
-        console.log(data);
-      angular.forEach(events, function(value, key) {
-        $scope.events.push({title:value.description, start: value.date_start, end:value.date_end });
-      });
-    });
+//    events = Event.query (function(data){
+//        console.log(data);
+//      angular.forEach(events, function(value, key) {
+//        $scope.events.push({title:value.description, start: value.date_start, end:value.date_end });
+//      });
+//    });
 
 
     // $scope.events = [

@@ -75,7 +75,7 @@ app.config(function ($routeProvider, $locationProvider) {
 
 
 app.factory('Student', function ($resource, Session, $rootScope) {
-    return $resource('http://localhost:3001', null, {
+    return $resource('', null, {
         query: {
             url: '/users/formation_users',
             method: 'GET',
@@ -87,7 +87,6 @@ app.factory('Student', function ($resource, Session, $rootScope) {
         update: {
             method: 'POST',
             url: '/users/update_profile',
-            headers: Session.header,
             transformRequest: function (data) {
                 return JSON.stringify({
                     user: {
@@ -105,25 +104,28 @@ app.factory('Student', function ($resource, Session, $rootScope) {
             }
         },
         isAdmin: {
-        method: 'GET',
-        url: '/api/sessions/is_admin',      
-        headers: Session.header
-       }
+            method: 'GET',
+            headers: Session.header,
+            url: 'http://localhost:3000/api/sessions/is_admin'
+        },
+        logout: {
+            method: 'DELETE',
+            headers: Session.header,
+            url: '/sessions/:id'
+        }
     });
 });
 
 app.factory('Event', function ($resource, Session) {
-   return $resource('http://localhost:3000/api', null, {
-       query: {
-           url: 'http://localhost:3000/api/events',
-           headers: Session.header,
-           method: 'GET',
-           isArray: true,
-       },
-       create:{
-           url: 'http://localhost:3001/admin/events',
-           method: 'POST',
-           isArray: true,
-       }
-   });
+    return $resource('/', null, {
+        query: {
+            url: 'api/events',
+            method: 'GET',
+            isArray: true
+        },
+        create: {
+            url: 'admin/events',
+            method: 'POST'
+        }
+    });
 });
