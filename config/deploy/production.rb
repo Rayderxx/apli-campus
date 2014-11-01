@@ -10,6 +10,7 @@ role :db,  %w{appli-campus@178.62.95.127}
 
 set :scm, :git
 set :branch, "feature/amilti"
+set :use_sudo, false
 
 # Extended Server Syntax
 # ======================
