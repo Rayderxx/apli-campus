@@ -33,7 +33,16 @@ a:focus {
 }
 .menu {
     border-radius: 7px;
-    padding: 12.5% 0;
+    padding: 50% 0;
+    height:300px;
+    width: 160px;
+}
+.home .col-xs-6{
+    width: 180px;
+}
+.home .row{
+    width:360px;
+    margin:10px auto;
 }
 .presence {
     background: #383838;
