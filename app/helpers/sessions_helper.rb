@@ -1,5 +1,6 @@
 module SessionsHelper
     require 'rest_client'
+
     def redirect_back_or
         unless session[:return_to].nil?
             session.delete(:return_to)
@@ -23,6 +24,11 @@ module SessionsHelper
             session[:authentication_token] = @response['user']['authentication_token']
         end
         @response['errors'] ? false : @response
+    end
+
+    def get_events
+        @response =  @rest['events'].get
+        @response = JSON.parse(@response)   
     end
 
     #check if user is login
@@ -56,6 +62,19 @@ module SessionsHelper
     def is_admin?
         @response = JSON.parse(@rest['sessions/is_admin'].get)
         @response["is_admin"]
+    end
+
+    def get_presences
+         @response = JSON.parse(@rest['admin/presences'].get)
+    end
+
+    def is_present?(student_id, event_id)
+        params = {
+                    :student_id => student_id,
+                    :event_id => event_id
+                }
+        response = @rest['admin/presences/is_present'].post params
+        response = response == "true" ? "Présent" : "Absent" 
     end
 
     #header to send for all request

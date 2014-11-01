@@ -5,7 +5,7 @@ var app = angular.module('AngularRails', [
     'ui.calendar'
 ]);
 
-app.factory('Session', function ($http, $q) {
+app.factory('Session', ['$http', '$q', function ($http, $q) {
     return {
         getHeader: function () {
             var deferred = $q.defer();
@@ -24,7 +24,7 @@ app.factory('Session', function ($http, $q) {
         }
 
     }
-});
+}]);
 app.run(function (Session, $rootScope) {
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
         Session.getHeader().then(function (header) {
@@ -74,8 +74,8 @@ app.config(function ($routeProvider, $locationProvider) {
 });
 
 
-app.factory('Student', function ($resource, Session, $rootScope) {
-    return $resource('', null, {
+app.factory('Student',['$resource', 'Session', '$rootScope', function ($resource, Session, $rootScope) {
+        return $resource('', null, {
         query: {
             url: '/users/formation_users',
             method: 'GET',
@@ -114,18 +114,14 @@ app.factory('Student', function ($resource, Session, $rootScope) {
             url: '/sessions/:id'
         }
     });
-});
+}]);
 
 app.factory('Event', function ($resource, Session) {
-    return $resource('/', null, {
-        query: {
-            url: 'api/events',
-            method: 'GET',
-            isArray: true
-        },
-        create: {
-            url: 'admin/events',
-            method: 'POST'
-        }
-    });
+   return $resource('/', null, {
+       query: {
+           url: '/events',
+           method: 'GET',
+           isArray: true,
+       }
+   });
 });

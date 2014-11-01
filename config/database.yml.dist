@@ -18,7 +18,10 @@ development:
   socket: /tmp/mysql.sock
 
 production:
- adapter: postgresql
- database: apli_campus
- pool: 5
- timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  database: apli_campus
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock

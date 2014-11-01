@@ -1,4 +1,4 @@
-app.controller('TrombiCtrl', function ($scope, Student) {
+app.controller('TrombiCtrl', ['$scope', 'Student', function ($scope, Student) {
     $scope.students = Student.query();
     
-});
+}]);

@@ -4,14 +4,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.3'
 
 # Use mysql as the database for Active Record
-gem 'mysql2'
-gem 'pg'
 gem 'devise'
 gem "rolify"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-gem "therubyracer"
 gem "less-rails"
+gem 'therubyracer'
 gem 'angular-rails-templates'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -38,6 +36,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+
+group :production do
+    gem 'puma'
+    gem 'execjs'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

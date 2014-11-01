@@ -1,4 +1,4 @@
-app.controller('ProfileUpdateCtrl', function ($scope, Student, $timeout) {
+app.controller('ProfileUpdateCtrl', ['$scope', 'Student', '$timeout', function ($scope, Student, $timeout) {
 
     $scope.student = Student.getCurrentUser();
 
@@ -23,4 +23,4 @@ app.controller('ProfileUpdateCtrl', function ($scope, Student, $timeout) {
         });
     }
 
-});
+}]);
