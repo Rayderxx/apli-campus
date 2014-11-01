@@ -5,7 +5,7 @@ var app = angular.module('AngularRails', [
     'ui.calendar'
 ]);
 
-app.factory('Session', function ($http, $q) {
+app.factory('Session', ['$http', '$q', function ($http, $q) {
     return {
         getHeader: function () {
             var deferred = $q.defer();
@@ -24,7 +24,7 @@ app.factory('Session', function ($http, $q) {
         }
 
     }
-});
+}]);
 app.run(function (Session, $rootScope) {
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
         Session.getHeader().then(function (header) {
@@ -74,7 +74,7 @@ app.config(function ($routeProvider, $locationProvider) {
 });
 
 
-app.factory('Student', function ($resource, Session, $rootScope) {
+app.factory('Student',['$resource', 'Session', '$rootScope', function ($resource, Session, $rootScope) {
     return $resource('http://localhost:3001', null, {
         query: {
             url: '/users/formation_users',
@@ -110,7 +110,7 @@ app.factory('Student', function ($resource, Session, $rootScope) {
         headers: Session.header
        }
     });
-});
+}]);
 
 app.factory('Event', function ($resource, Session) {
    return $resource('http://localhost:3001', null, {

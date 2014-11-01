@@ -1,4 +1,4 @@
-app.controller('ProfileCtrl', function ($scope, Student, $routeParams) {
+app.controller('ProfileCtrl', ['$scope', 'Student', '$routeParams', function ($scope, Student, $routeParams) {
     Student.query(function (students) {
         l = students.length;
         for (i = 0; i < l; i++) {
@@ -7,4 +7,4 @@ app.controller('ProfileCtrl', function ($scope, Student, $routeParams) {
             }
         }
     });
-});
+}]);

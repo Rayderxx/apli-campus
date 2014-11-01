@@ -1,4 +1,4 @@
-app.controller('AgendaCtrl', function ($scope, Event, Student) {
+app.controller('AgendaCtrl', ['$scope', 'Event', 'Student', function ($scope, Event, Student) {
 
     Student.isAdmin(function(data){
       $scope.isAdmin = data.is_admin;
@@ -51,7 +51,7 @@ app.controller('AgendaCtrl', function ($scope, Event, Student) {
 
      $scope.eventSources = [$scope.events];
 
-});
+}]);
 
 'use strict';
 angular.module("ngLocale", [], ["$provide", function($provide) {
