@@ -1,3 +1,4 @@
+'use strict';
 app.controller('AgendaCtrl', ['$scope', 'Event', 'Student', function ($scope, Event, Student) {
 
     Student.isAdmin(function(data){
@@ -49,7 +50,6 @@ app.controller('AgendaCtrl', ['$scope', 'Event', 'Student', function ($scope, Ev
 
 }]);
 
-'use strict';
 angular.module("ngLocale", [], ["$provide", function($provide) {
 var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "many", OTHER: "other"};
 $provide.value("$locale", {

@@ -25,14 +25,14 @@ app.factory('Session', ['$http', '$q', function ($http, $q) {
 
     }
 }]);
-app.run(function (Session, $rootScope) {
+app.run(['Session', '$rootScope', function (Session, $rootScope) {
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
         Session.getHeader().then(function (header) {
             Session.header = header;
         });
     });
-});
-app.config(function ($routeProvider, $locationProvider) {
+}]);
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'home.html',
@@ -71,7 +71,7 @@ app.config(function ($routeProvider, $locationProvider) {
             redirectTo: '/'
         });
     $locationProvider.html5Mode(true);
-});
+}]);
 
 
 app.factory('Student',['$resource', 'Session', '$rootScope', function ($resource, Session, $rootScope) {
@@ -116,7 +116,7 @@ app.factory('Student',['$resource', 'Session', '$rootScope', function ($resource
     });
 }]);
 
-app.factory('Event', function ($resource, Session) {
+app.factory('Event',['$resource', 'Session', function ($resource, Session) {
    return $resource('/', null, {
        query: {
            url: '/events',
@@ -124,4 +124,4 @@ app.factory('Event', function ($resource, Session) {
            isArray: true,
        }
    });
-});
+}]);
