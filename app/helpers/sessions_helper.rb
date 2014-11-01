@@ -81,4 +81,9 @@ module SessionsHelper
     def get_header
         {'X-User-Email' => session[:email], 'X-User-Token' => session[:authentication_token]}
     end
+    
+    def log_out
+        session.delete(:user_id)
+        @current_user = nil
+    end
 end

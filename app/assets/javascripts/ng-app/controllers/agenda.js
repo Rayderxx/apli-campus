@@ -2,6 +2,7 @@ app.controller('AgendaCtrl', ['$scope', 'Event', 'Student', function ($scope, Ev
 
     Student.isAdmin(function(data){
       $scope.isAdmin = data.is_admin;
+        console.log(data);
     });
 
     // $scope.eventSources = [];
@@ -43,11 +44,6 @@ app.controller('AgendaCtrl', ['$scope', 'Event', 'Student', function ($scope, Ev
         );
       });
     });
-
-
-    // $scope.events = [
-    //   {title: 'All Day Event', start: new Date(), end: new Date()},
-    // ];
 
      $scope.eventSources = [$scope.events];
 

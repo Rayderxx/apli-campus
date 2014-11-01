@@ -9,11 +9,8 @@ class SessionsController < ApplicationController
         unless login
             render 'login'
         end
-        if login["user"]["roles"].first["name"] == "admin"
-            redirect_to admin_path
-        else
-            redirect_to root_path
-        end
+
+        redirect_to root_path
     end
 
     def header
@@ -21,10 +18,12 @@ class SessionsController < ApplicationController
     end
 
     def destroy
+#        log_out
+        redirect_to root_url
     end
 
     private
-        def user_params
-            params.require(:user).permit(:email, :password)
-        end
+    def user_params
+        params.require(:user).permit(:email, :password)
+    end
 end

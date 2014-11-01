@@ -1,5 +1,17 @@
-<%= simple_form_for @user, :url => sessions_path do |f| %>
-  <%= f.input :email, wrapper_html: { class: 'username' } %>
-  <%= f.input :password, wrapper_html: { id: 'password' } %>
-  <%= f.button :submit %>
-<% end %>
+<section class="container-fluid login" ng-controller="LoginCtrl">
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+            <%= image_tag("logo_UCP.jpg", :alt => "Logo UCP", :class => "img-responsive logo-ucp") %>
+        </div>
+    </div>
+    <h2>Appli Campus</h2><br>
+
+    <%= simple_form_for @user, :url => sessions_path do |f| %>
+        <%= f.input :email, label: false, placeholder: 'Email' %>
+        <%= f.input :password, label: false, placeholder: 'Mot de passe' %>
+        <%= f.button :submit, class: 'btn-large' %>
+    <% end %>
+    
+    
+
+</section>
