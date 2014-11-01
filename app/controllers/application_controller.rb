@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
     end
 
     def set_rest_client
-        @rest = RestClient::Resource.new('http://localhost:3000/api', :headers => get_header)
+        @rest = RestClient::Resource.new('http://178.62.95.127/api', :headers => get_header)
     end
 end
