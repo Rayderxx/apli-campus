@@ -26,6 +26,11 @@ module SessionsHelper
         @response['errors'] ? false : @response
     end
 
+    def get_events
+        @response =  @rest['events'].get
+        @response = JSON.parse(@response)   
+    end
+
     #check if user is login
     def user_signed_in?
         begin

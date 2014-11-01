@@ -5,6 +5,7 @@
     "bootstrap": "latest",
     "angular-resource": "latest",
     "fullcalendar": "latest",
-    "angular-ui-calendar": "latest"
+    "angular-ui-calendar": "latest",
+    "moment": "latest"
   }
 }

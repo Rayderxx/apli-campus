@@ -10,6 +10,7 @@ app.controller('AgendaCtrl', function ($scope, Event, Student) {
     $scope.uiConfig = {
         calendar: {
             editable: false,
+            defaultView: 'agendaWeek',
             header: {
                 left: '',
                 center: 'title',
@@ -17,15 +18,29 @@ app.controller('AgendaCtrl', function ($scope, Event, Student) {
             },
             firstDay: 1,
             lang: "fr",
-            eventResize: $scope.alertOnResize
+            eventResize: $scope.alertOnResize,
+            axisFormat: 'H:mm',
+            minTime: '09:00:00',
+            maxTime: '19:00:00',
+            timeFormat: {
+                agenda: 'H:mm{ - H:mm}'
+            }
         }
     }
 
     $scope.events = [];
     events = Event.query (function(data){
-        console.log(data);
       angular.forEach(events, function(value, key) {
-        $scope.events.push({title:value.description, start: value.date_start, end:value.date_end });
+        var start = moment(value.date_start)
+        var end   = moment(value.date_end)
+        $scope.events.push(
+            {
+                title:value.description, 
+                start: new Date(start.year(), start.month(), start.date(), start.hour(), start.minute() ), 
+                end: new Date(end.year(), end.month(), end.date(), end.hour(), end.minute() ),
+                allDay: false
+            }
+        );
       });
     });
 

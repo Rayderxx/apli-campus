@@ -113,16 +113,10 @@ app.factory('Student', function ($resource, Session, $rootScope) {
 });
 
 app.factory('Event', function ($resource, Session) {
-   return $resource('http://localhost:3000/api', null, {
+   return $resource('http://localhost:3001', null, {
        query: {
-           url: 'http://localhost:3000/api/events',
-           headers: Session.header,
+           url: '/events',
            method: 'GET',
-           isArray: true,
-       },
-       create:{
-           url: 'http://localhost:3001/admin/events',
-           method: 'POST',
            isArray: true,
        }
    });
