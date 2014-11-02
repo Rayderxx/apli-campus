@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
             render 'login'
         end
 
-        redirect_to root_path
+        if login["user"]["roles"].first["name"] == "admin"
+            redirect_to admin_path
+        else
+            redirect_to root_path
+        end
     end
 
     def header
