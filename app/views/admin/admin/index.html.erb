@@ -1,5 +1,4 @@
 <% if @presences %>
-    <%= @presences["description"] %>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -8,6 +7,7 @@
                 </th>
             </tr>
             <tr>
+                <th>id</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Présent</th>
@@ -16,9 +16,10 @@
         <tbody>
             <%@presences["students"].each do |student| %>
                 <tr>
+                    <td><%= student["id"] %></td>
                     <td><%= student["last_name"] %></td>
                     <td><%= student["first_name"] %></td>
-                    <td><%= is_present?(student["id"], @presences["id"] ) %></td>
+                    <td class="present" data-event="<%= @presences["id"] %>" data-id="<%= student["id"] %>"><%= is_present?(student["id"], @presences["id"] ) %></td>
                 </tr>
             <% end %>
         </tbody>

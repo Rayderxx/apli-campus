@@ -17,6 +17,7 @@ ApliCampus::Application.routes.draw do
 
   namespace :admin do
     get '/' => 'admin#index'
+    post '/admin/presence' => 'admin#presence'
     resources :timesheets
     resources :events do
         collection do

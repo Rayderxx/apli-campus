@@ -92,7 +92,7 @@ app.controller('AgendaAdminCtrl', ['$scope', 'eventData', function ($scope, even
             eventClick: $scope.alertEventOnClick,
             axisFormat: 'H:mm',
             minTime: '09:00:00',
-            maxTime: '19:00:00',
+            maxTime: '23:00:00',
             timeFormat: {
                 agenda: 'H:mm{ - H:mm}'
             }

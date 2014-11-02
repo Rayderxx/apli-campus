@@ -9,4 +9,9 @@ class Admin::AdminController < ApplicationController
     def user_is_admin
         render json: {errors: 'unauthorized access'}  unless is_admin? 
     end
+
+    def presence
+        @response = @rest['admin/presences/change_present'].post params
+        render json: true
+    end
 end
