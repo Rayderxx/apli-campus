@@ -6,6 +6,7 @@
     "angular-resource": "latest",
     "fullcalendar": "latest",
     "angular-ui-calendar": "latest",
-    "moment": "latest"
+    "moment": "latest",
+    "underscore": "latest"
   }
 }

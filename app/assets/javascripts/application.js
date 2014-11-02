@@ -20,6 +20,7 @@
 //= require angular-ui-calendar
 //= require angular-rails-templates
 //= require moment
+//= require underscore
 //= require_tree ../templates
 //= require_tree .
 

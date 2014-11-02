@@ -1,4 +1,4 @@
-<section class="container-fluid login" ng-controller="LoginCtrl">
+<section class="container-fluid login">
     <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
             <%= image_tag("logo_UCP.jpg", :alt => "Logo UCP", :class => "img-responsive logo-ucp") %>
@@ -11,7 +11,4 @@
         <%= f.input :password, label: false, placeholder: 'Mot de passe' %>
         <%= f.button :submit, "Se connecter",  class: 'btn-large' %>
     <% end %>
-    
-    
-
 </section>

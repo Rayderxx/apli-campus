@@ -120,3 +120,57 @@ app.factory('Event',['$resource', 'Session', function ($resource, Session) {
        }
    });
 }]);
+
+app.factory('eventData', ["$http", "$q", function($http, $q){
+    return {
+        fetch: function(){
+            var deferred = $q.defer();
+            $http({method: 'GET', url: '/admin/events/events'}).
+                success(function(data, status, headers, config){
+                    deferred.resolve(data)
+                }).
+                error(function(data, status, headers, config){
+                    deferred.reject(status)
+                });
+
+            return deferred.promise;
+        },
+
+        create: function(event){
+            var deferred = $q.defer();
+            $http({method: 'POST', url: '/admin/events', data: {event: event}}).
+                success(function(data, status, headers, config){
+                    deferred.resolve(data)
+                }).
+                error(function(data, status, headers, config){
+                    deferred.reject(status)
+                });
+
+            return deferred.promise;
+        },
+        destroy: function(event){
+            var deferred = $q.defer();
+            $http({method: 'DELETE', url: '/admin/events/'+event}).
+                success(function(data, status, headers, config){
+                    deferred.resolve(data)
+                }).
+                error(function(data, status, headers, config){
+                    deferred.reject(status)
+                });
+
+            return deferred.promise;
+        },
+        update: function(event){
+            var deferred = $q.defer();
+            $http({method: 'PUT', url: '/admin/events/'+event.id, data: {event: event}}).
+                success(function(data, status, headers, config){
+                    deferred.resolve(data)
+                }).
+                error(function(data, status, headers, config){
+                    deferred.reject(status)
+                });
+
+            return deferred.promise;
+        }  
+    }
+}]);
