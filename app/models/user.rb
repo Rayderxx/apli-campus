@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     def self.column(name, sql_type = nil, default = nil, null = true)
         columns << ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default, sql_type.to_s, null)
     end
+    column :id, :string
+    column :user_id, :string
     column :email, :string
     column :type, :string
     column :roles, :array
