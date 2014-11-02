@@ -1,10 +1,11 @@
 module SessionsHelper
     require 'rest_client'
 
-    def redirect_back_or
-        unless session[:return_to].nil?
-            session.delete(:return_to)
-            redirect_to session[:return_to]
+    def redirect_back_or(login)
+        if login["user"]["roles"].first["name"] == "admin"
+            redirect_to admin_path
+        else
+            redirect_to root_path
         end
     end
 
